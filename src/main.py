@@ -87,7 +87,7 @@ def build_stats():
         dtools.ClassSizes(project_meta),
     ]
     heatmaps = dtools.ClassesHeatmaps(project_meta)
-    classes_previews = dtools.ClassesPreview(project_meta, project_info.name, force=False)
+    classes_previews = dtools.ClassesPreview(project_meta, project_info.name, row_height=1200)
     previews = dtools.Previews(project_id, project_meta, api, team_id)
 
     for stat in stats:
