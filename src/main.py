@@ -58,7 +58,7 @@ if len(custom_data) >= 0:
         "homepage_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
         "license": "CC BY-NC-ND 4.0",
         "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
-        "preview_image_id": 185895,
+        "preview_image_id": 190516,
         "github_url": "https://github.com/dataset-ninja/full-body-tiktok-dancing-dataset",
         "citation_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
         "download_sly_url": download_sly_url,
