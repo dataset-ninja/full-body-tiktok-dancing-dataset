@@ -18,7 +18,7 @@ api = sly.Api.from_env()
 team_id = sly.env.team_id()
 workspace_id = sly.env.workspace_id()
 
-project_info = api.project.get_info_by_name(workspace_id, "Cracks and Potholes in Road")
+project_info = api.project.get_info_by_name(workspace_id, "Full Body TikTok Dancing")
 if project_info is None:
     project_info = convert_and_upload_supervisely_project(api, workspace_id)
 
@@ -129,11 +129,11 @@ def build_stats():
 def build_visualizations():
     renderers = [
         dtools.Poster(project_id, project_meta, force=False),
-        dtools.SideAnnotationsGrid(project_id, project_meta),
+        dtools.SideAnnotationsGrid(project_id, project_meta, rows=2, cols=5),
     ]
     animators = [
-        dtools.HorizontalGrid(project_id, project_meta),
-        dtools.VerticalGrid(project_id, project_meta, force=False),
+        dtools.HorizontalGrid(project_id, project_meta, rows=2, cols=9),
+        dtools.VerticalGrid(project_id, project_meta, force=False, rows=4),
     ]
 
     for vis in renderers + animators:
