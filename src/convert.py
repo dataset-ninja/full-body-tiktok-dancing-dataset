@@ -11,7 +11,7 @@ from tqdm import tqdm
 def convert_and_upload_supervisely_project(api, workspace_id):
 
     project_name = "Full Body TikTok Dancing"
-    dataset_path = "/Users/almaz/Downloads/archive_tiktok"
+    dataset_path = "/Users/almaz/Downloads/archive_tiktok/segmentation_full_body_tik_tok_2615_img/segmentation_full_body_tik_tok_2615_img"
     ds_name = "ds"
     batch_size = 30
     images_folder_name = "images"
@@ -43,7 +43,7 @@ def convert_and_upload_supervisely_project(api, workspace_id):
     obj_class_dancing = sly.ObjClass("dancing person", sly.Bitmap)
     obj_class_collection = sly.ObjClassCollection([obj_class_dancing])
 
-    project_info = api.project.create(workspace_id, project_name, change_name_if_conflict=True)
+    project_info = api.project.create(workspace_id, project_name)
     meta = sly.ProjectMeta(obj_classes=obj_class_collection)
     api.project.update_meta(project_info.id, meta.to_json())
 
@@ -53,7 +53,7 @@ def convert_and_upload_supervisely_project(api, workspace_id):
     masks_path = os.path.join(dataset_path, masks_folder_name)
     images_names = os.listdir(images_path)
 
-    progress = tqdm(desc=f"Create dataset {ds_name}", totla=len(images_names))
+    progress = tqdm(desc=f"Create dataset {ds_name}", total=len(images_names))
 
     for img_names_batch in sly.batched(images_names, batch_size=batch_size):
         images_pathes_batch = [os.path.join(images_path, image_path) for image_path in img_names_batch]
