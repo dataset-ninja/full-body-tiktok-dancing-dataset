@@ -91,7 +91,7 @@ custom_data = project_info.custom_data
 def build_stats():
     stats = [
         dtools.ClassBalance(project_meta),
-        dtools.ClassCooccurrence(project_meta, force=False),
+        dtools.ClassCooccurrence(project_meta),
         dtools.ClassesPerImage(project_meta, datasets),
         dtools.ObjectsDistribution(project_meta),
         dtools.ObjectSizes(project_meta),
@@ -139,12 +139,12 @@ def build_stats():
 
 def build_visualizations():
     renderers = [
-        dtools.Poster(project_id, project_meta, force=False),
+        dtools.Poster(project_id, project_meta),
         dtools.SideAnnotationsGrid(project_id, project_meta, rows=2, cols=5),
     ]
     animators = [
         dtools.HorizontalGrid(project_id, project_meta, rows=2, cols=9),
-        dtools.VerticalGrid(project_id, project_meta, force=False, rows=4),
+        dtools.VerticalGrid(project_id, project_meta, rows=4),
     ]
 
     for vis in renderers + animators:
