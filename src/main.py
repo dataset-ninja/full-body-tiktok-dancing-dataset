@@ -62,8 +62,8 @@ custom_data = {
     # required fields
     "name": PROJECT_NAME,
     "fullname": PROJECT_FULLNAME,
-    "cv_tasks": ["semantic segmentation"],
-    "annotation_types": ["semantic segmentation"],
+    "cv_tasks": ["instance segmentation"],
+    "annotation_types": ["instance segmentation"],
     "industries": ["general domain"],
     "release_year": 2021,
     "homepage_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
