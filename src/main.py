@@ -17,7 +17,11 @@ api = sly.Api.from_env()
 team_id = sly.env.team_id()
 workspace_id = sly.env.workspace_id()
 
-project_info = api.project.get_info_by_name(workspace_id, "Full Body TikTok Dancing")
+PROJECT_NAME = "Full Body TikTok Dancing"
+PROJECT_FULLNAME = "Segmentation Full Body TikTok Dancing Dataset"
+DOWNLOAD_ORIGINAL_URL = "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset/download?datasetVersionNumber=2"
+
+project_info = api.project.get_info_by_name(workspace_id, PROJECT_NAME)
 if project_info is None:
     project_info = convert_and_upload_supervisely_project(api, workspace_id)
 
@@ -39,41 +43,49 @@ project_info = api.project.get_info_by_id(project_id)
 custom_data = project_info.custom_data
 
 # # 2. get download link
-# download_sly_url = dtools.prepare_download_link(project_info)
-# dtools.update_sly_url_dict({project_id: download_sly_url})
+download_sly_url = dtools.prepare_download_link(project_info)
+dtools.update_sly_url_dict(
+    {
+        PROJECT_NAME: {
+            "id": project_id,
+            "download_sly_url": download_sly_url,
+            "download_original_url": DOWNLOAD_ORIGINAL_URL,
+        }
+    }
+)
+sly.logger.info(f"Prepared download link: {download_sly_url}")
 
 
-# # 3. upload custom data
-# if len(custom_data) >= 0:
-#     # preset fields
-#     custom_data = {
-#         # required fields
-#         "name": "Full Body TikTok Dancing",
-#         "fullname": "Segmentation Full Body TikTok Dancing Dataset",
-#         "cv_tasks": ["semantic segmentation"],
-#         "annotation_types": ["semantic segmentation"],
-#         "industries": ["general domain"],
-#         "release_year": 2021,
-#         "homepage_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
-#         "license": "CC BY-NC-ND 4.0",
-#         "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
-#         "preview_image_id": 194702,
-#         "github_url": "https://github.com/dataset-ninja/full-body-tiktok-dancing-dataset",
-#         "citation_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
-#         "download_sly_url": download_sly_url,
-#         # optional fields
-#         "download_original_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset/download?datasetVersionNumber=2",
-#         # "paper": None,
-#         # "organization_name": None,
-#         # "organization_url": None,
-#         # "tags": [],
-#         "github": "dataset-ninja/full-body-tiktok-dancing-dataset",
-#     }
-#     api.project.update_custom_data(project_id, custom_data)
+# 3. upload custom data
+# preset fields
+custom_data = {
+    # required fields
+    "name": PROJECT_NAME,
+    "fullname": PROJECT_FULLNAME,
+    "cv_tasks": ["semantic segmentation"],
+    "annotation_types": ["semantic segmentation"],
+    "industries": ["general domain"],
+    "release_year": 2021,
+    "homepage_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
+    "license": "CC BY-NC-ND 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode",
+    "preview_image_id": 194702,
+    "github_url": "https://github.com/dataset-ninja/full-body-tiktok-dancing-dataset",
+    "citation_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
+    "download_sly_url": download_sly_url,
+    # optional fields
+    "download_original_url": DOWNLOAD_ORIGINAL_URL,
+    # "paper": None,
+    # "organization_name": None,
+    # "organization_url": None,
+    # "tags": [],
+    "github": "dataset-ninja/full-body-tiktok-dancing-dataset",
+}
+api.project.update_custom_data(project_id, custom_data)
 
 
-# project_info = api.project.get_info_by_id(project_id)
-# custom_data = project_info.custom_data
+project_info = api.project.get_info_by_id(project_id)
+custom_data = project_info.custom_data
 
 
 def build_stats():
