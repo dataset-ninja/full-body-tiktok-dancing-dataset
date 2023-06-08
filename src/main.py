@@ -1,12 +1,11 @@
 import json
 import os
 
-import supervisely as sly
 from dotenv import load_dotenv
 
 import dataset_tools as dtools
+import supervisely as sly
 from src.convert import convert_and_upload_supervisely_project
-
 
 if sly.is_development():
     load_dotenv(os.path.expanduser("~/ninja.env"))
@@ -62,11 +61,10 @@ if len(custom_data) >= 0:
         "github_url": "https://github.com/dataset-ninja/full-body-tiktok-dancing-dataset",
         "citation_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset",
         "download_sly_url": download_sly_url,
-
         # optional fields
         "download_original_url": "https://www.kaggle.com/datasets/tapakah68/segmentation-full-body-tiktok-dancing-dataset/download?datasetVersionNumber=2",
         # "paper": None,
-        # "organization_name": None, 
+        # "organization_name": None,
         # "organization_url": None,
         # "tags": [],
         "github": "dataset-ninja/full-body-tiktok-dancing-dataset",
@@ -76,6 +74,7 @@ if len(custom_data) >= 0:
 
 project_info = api.project.get_info_by_id(project_id)
 custom_data = project_info.custom_data
+
 
 def build_stats():
     stats = [
@@ -159,28 +158,43 @@ def build_visualizations():
         a.animate(f"./visualizations/{a.basename_stem}.webm")
     print("Visualizations done")
 
+
 def build_summary():
-    print('Building summary...')
+    print("Building summary...")
     summary_data = dtools.get_summary_data_sly(project_info)
 
-    classes_preview = None
-    if sly.fs.file_exists("./visualizations/classes_preview.webm"):
-        classes_preview=f"{custom_data['github_url']}/raw/main/visualizations/classes_preview.webm"
+    summary_content = dtools.generate_summary_content(summary_data)
 
-    summary_content = dtools.generate_summary_content(
-        summary_data,
-        vis_url=classes_preview,
-    )
+    vis_url = f"{custom_data['github_url']}/raw/main/visualizations/side_annotations_grid.png"
+    summary_content += f"\n\nHere is the visualized grid with sample images and masks:\n\n"
+    summary_content += f'<img src="{vis_url}">\n'
 
     with open("SUMMARY.md", "w") as summary_file:
         summary_file.write(summary_content)
-    print('Done.')
+    print("Done.")
+
+
+def build_license():
+    print("Building license...")
+    ds_name = custom_data["name"]
+    license_url = custom_data["license_url"]
+    license = custom_data["license"]
+    homepage = custom_data["homepage_url"]
+    license_content = f"The {ds_name} dataset is under [{license}]({license_url}) license."
+    license_content += f"\n\n[🔗 Source]({homepage})\n\n"
+
+    with open("LICENSE.md", "w") as license_file:
+        license_file.write(license_content)
+
+    print("Done.")
+
 
 def main():
     pass
     build_stats()
     build_visualizations()
     build_summary()
+    build_license()
 
 
 if __name__ == "__main__":
