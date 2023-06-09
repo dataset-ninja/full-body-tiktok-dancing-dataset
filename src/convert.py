@@ -40,7 +40,7 @@ def convert_and_upload_supervisely_project(api, workspace_id):
         return sly.Annotation(img_size=(img_height, img_wight), labels=labels)
 
 
-    obj_class_dancing = sly.ObjClass("dancing person", sly.Bitmap)
+    obj_class_dancing = sly.ObjClass("dancing person", sly.Bitmap, color=[15, 46, 138])
     obj_class_collection = sly.ObjClassCollection([obj_class_dancing])
 
     project_info = api.project.create(workspace_id, project_name)
