@@ -139,7 +139,7 @@ def build_stats():
 
 def build_visualizations():
     renderers = [
-        dtools.Poster(project_id, project_meta),
+        dtools.Poster(project_id, project_meta, title=PROJECT_NAME),
         dtools.SideAnnotationsGrid(project_id, project_meta, rows=2, cols=5),
     ]
     animators = [
