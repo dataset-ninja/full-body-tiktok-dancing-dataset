@@ -1,2 +1,3 @@
-# full-body-tiktok-dancing-dataset
-Segmentation Full Body TikTok Dancing Dataset
+# Segmentation Full Body TikTok Dancing Dataset
+
+Full Body TikTok Dancing is a dataset for instance segmentation tasks.
