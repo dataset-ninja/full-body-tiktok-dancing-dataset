@@ -6,4 +6,4 @@ Each image in the Full Body TikTok Dancing dataset has pixel-level instance segm
 
 Here is the visualized example grid with annotations:
 
-<img src="https://github.com/dataset-ninja/full-body-tiktok-dancing-dataset/raw/main/visualizations/horizontal_grid.png">
+<img src="https://github.com/dataset-ninja/full-body-tiktok-dancing-dataset/raw/main/visualizations/side_annotations_grid.png">
