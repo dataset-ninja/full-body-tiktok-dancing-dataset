@@ -34,7 +34,7 @@ VERTICAL_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 # * Set up visualization params for SideAnnotationsGrid class #
 SIDE_ANNOTATIONS_GRID_ROWS: int = 2
-SIDE_ANNOTATIONS_GRID_COLS: int = 4
+SIDE_ANNOTATIONS_GRID_COLS: int = 6
 SIDE_ANNOTATIONS_GRID_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 
@@ -47,7 +47,9 @@ PREVIEWS_IS_DETECTION_TASK: bool = IS_DETECTION_TASK
 ###############################################################
 ### * Set up visualization params for ClassesPreview class ####
 CLASSES_PREVIEW_ROW_HEIGHT: int = None
-CLASSES_PREVIEW_PADDINGS: dict = None
+CLASSES_PREVIEW_PADDINGS: dict = {"top": "10%", "bottom": "10%", "left": "40%", "right": "40%"}
+CLASSES_PREVIEW_ROWS: int = None
+CLASSES_PREVIEW_GAP: int = 10
 # default {"top": "10%", "bottom": "10%", "left": "10%", "right": "10%"}
 # set % or px as string values (e.i. "10%" or "10px")
 ###############################################################
@@ -111,6 +113,8 @@ def get_stats_options():
         "ClassesPreview": {
             "row_height": CLASSES_PREVIEW_ROW_HEIGHT,
             "pad": CLASSES_PREVIEW_PADDINGS,
+            "rows": CLASSES_PREVIEW_ROWS,
+            "gap": CLASSES_PREVIEW_GAP,
         },
         "ClassesHeatmaps": {
             "draw_style": DRAW_STYLE,
