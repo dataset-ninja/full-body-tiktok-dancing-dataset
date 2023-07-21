@@ -21,7 +21,7 @@ PROJECT_NAME_FULL: str = "Segmentation Full Body TikTok Dancing Dataset"
 ##################################
 LICENSE: License = License.CC_BY_NC_ND_4_0()
 APPLICATIONS: List[Union[Industry, Domain, Research]] = [Domain.General()]
-CATEGORY: Category = Category.Surveillance()
+CATEGORY: Category = Category.Entertainment()
 
 CV_TASKS: List[CVTask] = [
     CVTask.InstanceSegmentation(),
