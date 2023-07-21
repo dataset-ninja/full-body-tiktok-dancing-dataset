@@ -4,7 +4,7 @@
 
 # * Literal["ClassesPreview", "HorizontalGrid", "SideAnnotationsGrid"]
 # * If None, then preview_class will be set automatically to "ClassesPreview"
-PREVIEW_CLASS = "SideAnnotationsGrid"
+PREVIEW_CLASS = "Poster"
 
 IS_DETECTION_TASK: bool = None  # ? Set True if you want to visualize only bbox annotations
 
@@ -67,10 +67,10 @@ HEATMAP_OUTPUT_WIDTH: int = 1200
 ###############################################################
 
 
-
 ##################################
 ###### ? Do not edit bellow #####
 ##################################
+
 
 def get_visualization_options():
     vis_settings = {
