@@ -1,6 +1,6 @@
 Dataset **Full Body TikTok Dancing** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/p/N/AM/lIxpXk9ejtJkx0Eh7lV7jK8kPxKjVXF0sCxOBNfJ5bZJNAlhZPdmSiEyeXKtYoAKbCmiQHIIexrATKUJRq7bzlvfqTmiv2p9mj5TE4f9VmEnDaJgen1wTERUSCEI.tar)
+ [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/i/q/Qa/Ug2c7Sv9KTezoCvTGgCGS52mlVhjkWebADgroFLRNoYBbfPpi1m44FYCPHv1OUhHGxV5gerPYoAkZBaWODru66sIViJ2AfLzHtK7H2MlDLUhr264eEXPDgw7rT9E.tar)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
