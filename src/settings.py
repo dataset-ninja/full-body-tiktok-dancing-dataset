@@ -59,7 +59,7 @@ CLASS2COLOR: Optional[Dict[str, List[str]]] = None
 
 PAPER: Optional[str] = None
 CITATION_URL: Optional[str] = None
-AUTHORS: Optional[List[str]] = ["Talha Anwar", "Kucev Roman", "Kaggle Kerneler"]
+AUTHORS: Optional[List[str]] = ["Kucev Roman"]
 
 
 ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
