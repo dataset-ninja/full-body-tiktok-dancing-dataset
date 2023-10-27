@@ -1,1 +1,1 @@
-Dataset includes 2615 images of a segmented dancing people. Videos of people dancing from [TikTok](https://www.tiktok.com/) were dowloaded and cut into frames. On each frame, all the dancing people were selected in Photoshop.
+The **Segmentation Full Body TikTok Dancing Dataset** includes 2615 images of a segmented dancing people. Videos of people dancing from [TikTok](https://www.tiktok.com/) were dowloaded and cut into frames. On each frame, all the dancing people were selected in Photoshop.
